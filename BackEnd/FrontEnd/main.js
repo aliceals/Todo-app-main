@@ -5,7 +5,7 @@ var todoContainer = document.getElementById("todo-info");
 var btn = document.getElementById("btn");
 
 var ourRequest = new XMLHttpRequest();
-ourRequest.open("GET", "https://jsonplaceholder.typicode.com/todos");
+ourRequest.open("GET", "/todos");
 ourRequest.onload = function() {
   var ourData = JSON.parse(ourRequest.responseText);
   renderHTML(ourData);
