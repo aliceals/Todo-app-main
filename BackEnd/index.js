@@ -5,7 +5,7 @@ const app = express();
 app.use("/jsFiles", express.static(__dirname + "/FrontEnd/main.js"));
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.sendfile("FrontEnd/index.html");
 });
 
 app.get("/todos", (req, res) => {
