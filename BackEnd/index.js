@@ -2,6 +2,8 @@ const express = require("express");
 const response = require("./todos-response.json");
 const app = express();
 
+app.use("/jsFiles", express.static(__dirname + "/FrontEnd/main.js"));
+
 app.get("/", (req, res) => {
   res.send("Hello World");
 });
