@@ -127,8 +127,8 @@ function addToDoAPI(title, userId) {
   var json = JSON.stringify(data);
 
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://jsonplaceholder.typicode.com/todos", true);
-  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.open("POST", "/todos", true);
+  xhr.setRequestHeader("Content-type", "application/json");
   xhr.onload = function() {
     let fake_responseText =
       '{"userId":1,"title":"phil give alice massage","completed":false,"id":11}';
