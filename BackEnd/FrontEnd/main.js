@@ -130,10 +130,7 @@ function addToDoAPI(title, userId) {
   xhr.open("POST", "/todos", true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.onload = function() {
-    let fake_responseText =
-      '{"userId":1,"title":"phil give alice massage","completed":false,"id":11}';
-
-    var responseObject = JSON.parse(fake_responseText);
+    var responseObject = JSON.parse(xhr.responseText);
     addToDoToDOM(
       responseObject.id,
       responseObject.title,
