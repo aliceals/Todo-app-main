@@ -1,5 +1,5 @@
 const express = require("express");
-const response = require("./todos-response.json");
+const todosDatabase = require("./todos-response.json");
 const app = express();
 var bodyParser = require("body-parser");
 
@@ -10,7 +10,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/todos", (req, res) => {
-  res.send(response);
+  res.send(todosDatabase);
 });
 
 app.use(bodyParser.json());
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 app.post("/todos", (req, res) => {
   console.log(req.body);
   res.send("Hello world");
+  todosDatabase.push(req.body);
 });
 
 app.listen(3000, () => {
