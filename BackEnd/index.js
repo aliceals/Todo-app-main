@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 app.post("/todos", (req, res) => {
   console.log(req.body);
   todosDatabase.push(req.body);
-  res.send({ userId: 1, title: "i love you", completed: false });
+  res.send(req.body);
 });
 
 app.listen(3000, () => {

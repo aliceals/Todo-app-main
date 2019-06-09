@@ -131,6 +131,8 @@ function addToDoAPI(title, userId) {
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.onload = function() {
     var responseObject = JSON.parse(xhr.responseText);
+    console.log(xhr.responseText);
+    console.log(responseObject);
     addToDoToDOM(
       responseObject.id,
       responseObject.title,
