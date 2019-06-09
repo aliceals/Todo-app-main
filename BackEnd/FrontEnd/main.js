@@ -62,7 +62,6 @@ function changeButton(e) {
 function updateTickBox(id, title, userId, button) {
   // Update a user
 
-  var url = "https://jsonplaceholder.typicode.com/todos";
   var completed;
 
   if (button.textContent == "✅") {
@@ -81,7 +80,7 @@ function updateTickBox(id, title, userId, button) {
   var json = JSON.stringify(data);
 
   var xhr = new XMLHttpRequest();
-  xhr.open("PUT", url + "/" + id, true);
+  xhr.open("PUT", "/todos/" + id, true);
   xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
 
   xhr.onload = function() {
