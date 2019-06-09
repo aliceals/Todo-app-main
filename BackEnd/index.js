@@ -22,7 +22,7 @@ app.post("/todos", (req, res) => {
   res.send(req.body);
 });
 
-app.put("/todos/121", (req, res) => {
+app.put("/todos/:id", (req, res) => {
   todosDatabase[req.body.id] = req.body;
 
   res.send(req.body);
