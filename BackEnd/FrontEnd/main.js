@@ -144,6 +144,12 @@ function addToDoAPI(title, userId) {
 
 //clear button
 
+function clearHTML(data) {
+  //find the node that has all the li
+  //delete its child
+  todoContainer.innerHTML = "";
+}
+
 var buttonNode = document.getElementById("clear");
 
 buttonNode.addEventListener("click", function() {
@@ -151,6 +157,7 @@ buttonNode.addEventListener("click", function() {
   ourRequest.open("DELETE", "/todos");
   ourRequest.onload = function() {
     console.log("Request finished");
+    clearHTML(); //this will clear all the todos from the HTML
   };
   ourRequest.send();
 });

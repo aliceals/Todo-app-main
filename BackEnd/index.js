@@ -1,5 +1,5 @@
 const express = require("express");
-const todosDatabase = require("./todos-response.json");
+var todosDatabase = require("./todos-response.json");
 const app = express();
 var bodyParser = require("body-parser");
 
@@ -28,7 +28,10 @@ app.put("/todos/:id", (req, res) => {
   res.send(req.body);
 });
 
-app.delete("/todos/:id", (req, res) => {});
+app.delete("/todos/", (req, res) => {
+  todosDatabase = [];
+  res.send();
+});
 
 app.listen(3000, () => {
   console.log("Listening at port 3000");
