@@ -28,6 +28,8 @@ app.put("/todos/:id", (req, res) => {
   res.send(req.body);
 });
 
+app.delete("/todos/:id", (req, res) => {});
+
 app.listen(3000, () => {
   console.log("Listening at port 3000");
 });

@@ -141,3 +141,24 @@ function addToDoAPI(title, userId) {
   };
   xhr.send(json);
 }
+
+//clear button
+
+var buttonNode = document.getElementById("clear");
+
+buttonNode.addEventListener("click", function() {
+  var ourRequest = new XMLHttpRequest();
+  ourRequest.open("DELETE", "/todos");
+  ourRequest.onload = function() {
+    console.log("Request finished");
+  };
+  ourRequest.send();
+});
+
+// buttonNode.addEventListener("click", function () {
+//   localStorage.clear();
+//   todosArray = [];
+//   while (todoListNode.firstChild) {
+//     todoListNode.removeChild(todoListNode.firstChild);
+//   }
+// });
