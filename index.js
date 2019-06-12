@@ -16,6 +16,15 @@ app.get("/todos", (req, res) => {
 app.use(bodyParser.json());
 
 app.post("/todos", (req, res) => {
+  //get todo title
+  var todoTitle = req.body.title;
+  //check the rule
+  if (todoTitle.length <= 3) {
+    //send error
+    res.status(400).send("Please enter a todo with more than 3 characters");
+    return;
+  }
+
   var uniqueId = todosDatabase.length + 1;
   req.body.id = uniqueId;
   todosDatabase.push(req.body);
