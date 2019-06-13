@@ -129,15 +129,20 @@ function addToDoAPI(title, userId) {
   xhr.open("POST", "/todos", true);
   xhr.setRequestHeader("Content-type", "application/json");
   xhr.onload = function() {
-    var responseObject = JSON.parse(xhr.responseText);
-    console.log(xhr.responseText);
-    console.log(responseObject);
-    addToDoToDOM(
-      responseObject.id,
-      responseObject.title,
-      responseObject.userId,
-      responseObject.completed
-    );
+    console.log(xhr.status);
+    if (xhr.status === 400) {
+      alert("Please enter a todo with more than 3 characters");
+    } else {
+      var responseObject = JSON.parse(xhr.responseText);
+      console.log(xhr.responseText);
+      console.log(responseObject);
+      addToDoToDOM(
+        responseObject.id,
+        responseObject.title,
+        responseObject.userId,
+        responseObject.completed
+      );
+    }
   };
   xhr.send(json);
 }
